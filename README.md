@@ -6,15 +6,11 @@ Learn ROS through the Kobuki mobile robotic base and RaspberryPI on board
 
 * [Raspberry Pi](http://www.raspberrypi.org) 2 or 3
 * [Kobuki](http://kobuki.yujinrobot.com)
-* [Ubuntu Mate 16.04 (Raspberry Pi)](http://ubuntu-mate.org/download) 
+* ~~[Ubuntu Mate 16.04 (Raspberry Pi)](http://ubuntu-mate.org/download)~~
 
 ## Install
 
 1. Configure your Ubuntu repositories to allow "restricted", "universe", and "multiverse".
-
-2. Install OpenSSH server:
-
-       sudo apt install openssh-server
 
 3. Setup the RPI to accept software from _packages.ros.org_ :
 
@@ -22,9 +18,8 @@ Learn ROS through the Kobuki mobile robotic base and RaspberryPI on board
     
 4. Setup the repository keys:
 
-       sudo apt-key adv --keyserver hkp://ha.pool.sks-keyservers.net:80 --recv-key 421C365BD9FF1F717815A3895523BAEEB01FA116
+       sudo apt-key adv --keyserver 'hkp://keyserver.ubuntu.com:80' --recv-key C1CF6E31E6BADE8868B172B4F42ED6FBAB17C654
     
-   If you experience issues connecting to the keyserver, you can try substituting hkp://pgp.mit.edu:80 or hkp://keyserver.ubuntu.com:80.
 
 5. Make sure your package index is up-to-date
 
@@ -33,7 +28,7 @@ Learn ROS through the Kobuki mobile robotic base and RaspberryPI on board
     
 6. There are many different libraries and tools in ROS. In our case, we use the _Desktop_ one:
 
-       sudo apt install ros-kinetic-desktop
+       sudo apt install ros-melodic-desktop
 
    In this installation there are: ROS core, rqt, rviz and robot-generic libraries.
 
@@ -42,9 +37,9 @@ Learn ROS through the Kobuki mobile robotic base and RaspberryPI on board
        sudo rosdep init
        rosdep update
     
-8. Add the ROS environment variables definitions to your bash session:
+8. Add the ROS environment variables definitions to your bash session: (*If you run this multiple times it will add it to your bashrc multiple times*)
  
-       echo "source /opt/ros/kinetic/setup.bash" >> ~/.bashrc 
+       echo "source /opt/ros/melodic/setup.bash" >> ~/.bashrc 
        source ~/.bashrc 
        
 9. Up to now you have installed what you need to run the core ROS packages. To create and manage your own ROS workspaces, there are various tools and requirements that are distributed separately. Install this tool and other dependencies for building ROS packages:
@@ -59,7 +54,7 @@ Learn ROS through the Kobuki mobile robotic base and RaspberryPI on board
        
 11. Add the ROS environment variables to your bash session:
 
-        echo "source ~/catkin_ws /devel/setup.bash" >> ~/.bashrc 
+        echo "source ~/catkin_ws/devel/setup.bash" >> ~/.bashrc 
         source ~/.bashrc
        
 12. Move your Python source files into the folder _“~/catkin_ws/src/kobuki_project”_ and delete _“devel”_ and _“build”_ into the folder _“~/catkin_ws”_ .
@@ -69,6 +64,10 @@ Learn ROS through the Kobuki mobile robotic base and RaspberryPI on board
          cd ~/catkin_ws catkin_make
 
 14. Close the terminal and then open a new one.
+
+
+##Note - Because we're running ROS melodic and kobuki is for kinetic, the following steps WILL NOT WORK
+
 
 15. Install the Kobuki stardard ROS drivers:
 
