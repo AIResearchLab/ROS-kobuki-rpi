@@ -66,7 +66,7 @@ Learn ROS through the Kobuki mobile robotic base and RaspberryPI on board
 14. Close the terminal and then open a new one.
 
 
-##Note - Because we're running ROS melodic and kobuki is for kinetic, the following steps WILL NOT WORK
+#### Note - Because we're running ROS melodic and kobuki is for kinetic, the following steps WILL NOT WORK
 
 
 15. Install the Kobuki stardard ROS drivers:
